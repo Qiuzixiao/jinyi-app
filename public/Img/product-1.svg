@@ -1,0 +1,37 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="800" fill="#f5f5f5"/>
+  
+  <!-- 螺栓头部 -->
+  <polygon points="350,200 450,200 450,300 350,300" fill="#C8102E" stroke="#333" stroke-width="4"/>
+  
+  <!-- 螺栓杆部 -->
+  <rect x="375" y="300" width="50" height="300" fill="#BEA77F" stroke="#333" stroke-width="4"/>
+  
+  <!-- 螺纹线 -->
+  <line x1="375" y1="320" x2="425" y2="320" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="340" x2="425" y2="340" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="360" x2="425" y2="360" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="380" x2="425" y2="380" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="400" x2="425" y2="400" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="420" x2="425" y2="420" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="440" x2="425" y2="440" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="460" x2="425" y2="460" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="480" x2="425" y2="480" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="500" x2="425" y2="500" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="520" x2="425" y2="520" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="540" x2="425" y2="540" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="560" x2="425" y2="560" stroke="#333" stroke-width="2"/>
+  <line x1="375" y1="580" x2="425" y2="580" stroke="#333" stroke-width="2"/>
+  
+  <!-- 高光效果 -->
+  <line x1="390" y1="210" x2="390" y2="290" stroke="#fff" stroke-width="2" opacity="0.7"/>
+  <line x1="385" y1="310" x2="385" y2="590" stroke="#fff" stroke-width="2" opacity="0.5"/>
+  
+  <!-- 产品名称 -->
+  <text x="400" y="650" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">高级螺栓系列</text>
+  <text x="400" y="680" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">304不锈钢 | 镀铬处理</text>
+  
+  <!-- 品牌标志 -->
+  <text x="400" y="730" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-style="italic" fill="#C8102E">精艺控股出品</text>
+</svg>

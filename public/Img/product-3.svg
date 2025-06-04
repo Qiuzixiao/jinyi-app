@@ -1,0 +1,54 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="800" fill="#f8f8f8"/>
+  
+  <!-- 螺丝头部 - 六角形 -->
+  <polygon points="350,200 400,170 450,200 450,260 400,290 350,260" fill="#a0a0a0" stroke="#333" stroke-width="4"/>
+  
+  <!-- 螺丝杆部 -->
+  <rect x="390" y="290" width="20" height="220" fill="#a0a0a0" stroke="#333" stroke-width="2"/>
+  
+  <!-- 螺纹线 - 更精细的螺纹 -->
+  <line x1="390" y1="300" x2="410" y2="300" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="310" x2="410" y2="310" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="320" x2="410" y2="320" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="330" x2="410" y2="330" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="340" x2="410" y2="340" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="350" x2="410" y2="350" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="360" x2="410" y2="360" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="370" x2="410" y2="370" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="380" x2="410" y2="380" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="390" x2="410" y2="390" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="400" x2="410" y2="400" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="410" x2="410" y2="410" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="420" x2="410" y2="420" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="430" x2="410" y2="430" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="440" x2="410" y2="440" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="450" x2="410" y2="450" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="460" x2="410" y2="460" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="470" x2="410" y2="470" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="480" x2="410" y2="480" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="490" x2="410" y2="490" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="500" x2="410" y2="500" stroke="#333" stroke-width="1"/>
+  
+  <!-- 高光效果 -->
+  <line x1="370" y1="200" x2="370" y2="260" stroke="#fff" stroke-width="2" opacity="0.7"/>
+  <line x1="395" y1="300" x2="395" y2="500" stroke="#fff" stroke-width="1" opacity="0.5"/>
+  
+  <!-- 精密刻度标记 -->
+  <circle cx="400" cy="520" r="30" fill="none" stroke="#C8102E" stroke-width="1"/>
+  <line x1="400" y1="490" x2="400" y2="495" stroke="#C8102E" stroke-width="1"/>
+  <line x1="430" y1="520" x2="425" y2="520" stroke="#C8102E" stroke-width="1"/>
+  <line x1="400" y1="550" x2="400" y2="545" stroke="#C8102E" stroke-width="1"/>
+  <line x1="370" y1="520" x2="375" y2="520" stroke="#C8102E" stroke-width="1"/>
+  
+  <!-- 产品名称 -->
+  <text x="400" y="600" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">精密螺丝系列</text>
+  <text x="400" y="630" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">钛合金 | 阳极氧化</text>
+  
+  <!-- 精密度标记 -->
+  <text x="400" y="660" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#C8102E">精度: ±0.01mm</text>
+  
+  <!-- 品牌标志 -->
+  <text x="400" y="700" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-style="italic" fill="#C8102E">精艺控股出品</text>
+</svg>

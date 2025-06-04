@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --burberry-red: #9e1b32;
+  --burberry-beige: #d3b787;
+  --transition-slow: 600ms;
+  --transition-medium: 500ms;
+  --transition-fast: 400ms;
+  
+  /* 添加缺失的颜色变量 */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-light-gray: #f5f5f5;
+  --color-dark-gray: #333333;
+  --color-medium-gray: #666666;
+  --background: #ffffff;
+  --foreground: #302e2e;
+  --page-background-color: #ffffff; /* 统一页面背景颜色变量 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* 暗色模式下的颜色变量，可以根据品牌调性调整或移除 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: var(--color-black);
+    --foreground: var(--color-light-gray);
+    --color-beige: #A99370; /* 暗色模式下的米色调整 */
+    --burberry-beige: #A99370; /* 暗色模式下的Burberry米色调整 */
+    --page-background-color: #bfc3c7; /* 暗色模式下的页面背景颜色 */
+  }
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  overflow-x: hidden;
+}
+
+/* 导航栏样式 */
+#navbar {
+  transition: all 0.3s ease;
+}
+
+#navbar.bg-transparent {
+  background-color: transparent;
+}
+
+#navbar.bg-white {
+  background-color: white;
+}
+
+/* 导航链接悬停动画 */
+.group:hover .group-hover\:w-full {
+  width: 100%;
+}
+
+/* 汉堡菜单动画 */
+#menu-toggle span {
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
+
+/* 移动端菜单过渡效果 */
+#mobile-menu {
+  transition: all 0.3s ease;
+}
+
+/* Burberry 格纹背景示例 - 可用于特定区块 */
+.burberry-check-light {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(190, 167, 127, 0.1) 10px,
+    rgba(190, 167, 127, 0.1) 20px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(190, 167, 127, 0.1) 10px,
+    rgba(190, 167, 127, 0.1) 20px
+  );
+  background-color: var(--page-background-color);
+}
+
+.burberry-check-dark {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(245, 245, 245, 0.05) 10px,
+    rgba(245, 245, 245, 0.05) 20px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(245, 245, 245, 0.05) 10px,
+    rgba(245, 245, 245, 0.05) 20px
+  );
+  background-color: #000000;
+}
+
+/* 视差滚动和动画效果 */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideLeft {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: translateX(-30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes scale {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* 动画类 */
+.animate-fade-in {
+  animation: fadeIn var(--transition-medium) ease forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-medium) ease forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown var(--transition-medium) ease forwards;
+}
+
+.animate-scale {
+  animation: scale var(--transition-medium) ease forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 视差滚动动画 */
+.animate-parallax-slow {
+  animation: slideUp var(--transition-slow) ease forwards;
+  animation-play-state: paused;
+}
+
+.animate-parallax-medium {
+  animation: slideUp var(--transition-medium) ease forwards;
+  animation-play-state: paused;
+}
+
+.animate-parallax-fast {
+  animation: slideUp var(--transition-fast) ease forwards;
+  animation-play-state: paused;
+}
+
+/* 时间轴动画 */
+.timeline-item {
+  transition: all var(--transition-medium) ease;
+}
+
+.timeline-dot {
+  transition: all var(--transition-medium) ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 15px rgba(158, 27, 50, 0.6);
+}
+
+/* Burberry 格纹背景 - 暗色版本 */
+.burberry-check-dark-alt {
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 10px,
+    rgba(245, 245, 245, 0.05) 10px,
+    rgba(245, 245, 245, 0.05) 20px
+  ),
+  repeating-linear-gradient(
+    -45deg,
+    transparent 10px,
+    rgba(245, 245, 245, 0.05) 10px,
+    rgba(245, 245, 245, 0.05) 20px
+  );
+  background-color: var(--color-dark-gray);
+}

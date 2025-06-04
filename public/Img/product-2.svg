@@ -1,0 +1,39 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="800" fill="#f0f0f0"/>
+  
+  <!-- 螺丝头部 - 十字槽 -->
+  <circle cx="400" cy="250" r="80" fill="#BEA77F" stroke="#333" stroke-width="4"/>
+  <line x1="360" y1="250" x2="440" y2="250" stroke="#333" stroke-width="10"/>
+  <line x1="400" y1="210" x2="400" y2="290" stroke="#333" stroke-width="10"/>
+  
+  <!-- 螺丝杆部 -->
+  <rect x="385" y="330" width="30" height="250" fill="#BEA77F" stroke="#333" stroke-width="4"/>
+  
+  <!-- 螺纹线 -->
+  <line x1="385" y1="350" x2="415" y2="350" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="370" x2="415" y2="370" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="390" x2="415" y2="390" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="410" x2="415" y2="410" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="430" x2="415" y2="430" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="450" x2="415" y2="450" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="470" x2="415" y2="470" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="490" x2="415" y2="490" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="510" x2="415" y2="510" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="530" x2="415" y2="530" stroke="#333" stroke-width="2"/>
+  <line x1="385" y1="550" x2="415" y2="550" stroke="#333" stroke-width="2"/>
+  
+  <!-- 高光效果 -->
+  <circle cx="370" cy="230" r="15" fill="#fff" opacity="0.5"/>
+  <line x1="395" y1="340" x2="395" y2="570" stroke="#fff" stroke-width="2" opacity="0.5"/>
+  
+  <!-- 防腐蚀特殊涂层效果 -->
+  <circle cx="400" cy="250" r="90" fill="none" stroke="#C8102E" stroke-width="2" stroke-dasharray="5,5" opacity="0.7"/>
+  
+  <!-- 产品名称 -->
+  <text x="400" y="650" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">防腐蚀紧固件</text>
+  <text x="400" y="680" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">316L不锈钢 | 特殊防腐涂层</text>
+  
+  <!-- 品牌标志 -->
+  <text x="400" y="730" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-style="italic" fill="#C8102E">精艺控股出品</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="800" fill="#f0f8f0"/>
+  
+  <!-- 环保标志背景 -->
+  <circle cx="400" cy="200" r="120" fill="#e0f0e0" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- 螺丝头部 - 平头 -->
+  <circle cx="400" cy="250" r="60" fill="#8BC34A" stroke="#333" stroke-width="3"/>
+  <line x1="370" y1="250" x2="430" y2="250" stroke="#333" stroke-width="6"/>
+  
+  <!-- 螺丝杆部 -->
+  <rect x="390" y="310" width="20" height="200" fill="#8BC34A" stroke="#333" stroke-width="2"/>
+  
+  <!-- 螺纹线 -->
+  <line x1="390" y1="320" x2="410" y2="320" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="335" x2="410" y2="335" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="350" x2="410" y2="350" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="365" x2="410" y2="365" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="380" x2="410" y2="380" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="395" x2="410" y2="395" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="410" x2="410" y2="410" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="425" x2="410" y2="425" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="440" x2="410" y2="440" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="455" x2="410" y2="455" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="470" x2="410" y2="470" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="485" x2="410" y2="485" stroke="#333" stroke-width="1"/>
+  <line x1="390" y1="500" x2="410" y2="500" stroke="#333" stroke-width="1"/>
+  
+  <!-- 环保标志 - 循环箭头 -->
+  <path d="M350,170 A70,70 0 0,1 450,170" fill="none" stroke="#4CAF50" stroke-width="8" stroke-linecap="round"/>
+  <path d="M450,170 A70,70 0 0,1 400,270" fill="none" stroke="#4CAF50" stroke-width="8" stroke-linecap="round"/>
+  <path d="M400,270 A70,70 0 0,1 350,170" fill="none" stroke="#4CAF50" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- 箭头尖 -->
+  <polygon points="350,170 340,150 360,155" fill="#4CAF50"/>
+  <polygon points="450,170 460,150 470,170" fill="#4CAF50"/>
+  <polygon points="400,270 380,280 390,260" fill="#4CAF50"/>
+  
+  <!-- 叶子图案 - 表示环保 -->
+  <path d="M400,520 C420,500 450,510 450,540 C450,570 420,580 400,560 C380,580 350,570 350,540 C350,510 380,500 400,520 Z" fill="#8BC34A" stroke="#4CAF50" stroke-width="2"/>
+  <path d="M400,520 L400,560" stroke="#4CAF50" stroke-width="2"/>
+  
+  <!-- 产品名称 -->
+  <text x="400" y="620" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#333">环保紧固件</text>
+  <text x="400" y="650" font-family="Arial, sans-serif" font-size="18" text-anchor="middle" fill="#666">可降解复合材料</text>
+  
+  <!-- 环保认证标志 -->
+  <rect x="320" y="680" width="160" height="30" rx="5" fill="#4CAF50" opacity="0.8"/>
+  <text x="400" y="700" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#fff">环保认证 ECO-2023</text>
+  
+  <!-- 品牌标志 -->
+  <text x="400" y="740" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" font-style="italic" fill="#C8102E">精艺控股出品</text>
+</svg>
