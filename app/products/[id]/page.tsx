@@ -10,10 +10,10 @@ type ProductParams = {
 };
 
 // 使用通用PageProps类型，不再需要手动定义Promise
-export default async function ProductPage({ params }: PageProps<ProductParams>) {
+export default async function ProductPage({ params, searchParams }: PageProps<ProductParams>) {
   const { id } = await params;
   const product = getProductById(id);
-  
+    
   // 如果产品不存在，返回404
   if (!product) {
     notFound();
