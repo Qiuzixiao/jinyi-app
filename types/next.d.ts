@@ -12,7 +12,7 @@ export type DynamicRouteParams<T extends Record<string, string | string[]>> = Pr
 // 通用的页面Props类型
 export interface PageProps<T extends Record<string, string | string[]> = {}> {
   params: DynamicRouteParams<T>;
-  searchParams?: Record<string, string | string[] | undefined>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 // 使用示例：
