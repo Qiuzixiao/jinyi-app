@@ -3,18 +3,15 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ProductDetail from '../../components/ProductDetail';
 import { getProductById, getProductImages, getProductSpecifications } from '../../data/products';
+import { PageProps } from '../../../types/next';
 
 type ProductParams = {
   id: string;
 };
 
-interface ProductPageProps {
-  params: ProductParams;
-  searchParams?: Record<string, string | string[] | undefined>;
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
-  const { id } = params;
+// 使用通用PageProps类型，不再需要手动定义Promise
+export default async function ProductPage({ params }: PageProps<ProductParams>) {
+  const { id } = await params;
   const product = getProductById(id);
   
   // 如果产品不存在，返回404
