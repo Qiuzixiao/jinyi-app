@@ -4,10 +4,13 @@ import { notFound } from 'next/navigation';
 import ProductDetail from '../../components/ProductDetail';
 import { getProductById, getProductImages, getProductSpecifications } from '../../data/products';
 
+type ProductParams = {
+  id: string;
+};
+
 interface ProductPageProps {
-  params: {
-    id: string;
-  };
+  params: ProductParams;
+  searchParams?: Record<string, string | string[] | undefined>;
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
