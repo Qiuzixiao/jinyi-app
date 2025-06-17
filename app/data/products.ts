@@ -3,9 +3,20 @@
 export const products = [
   {
     id: 'premium-bolt-series',
-    name: '特殊螺母系列',
+    name: '特殊螺母',
     image: '/Img/product-1.svg', // 使用新创建的产品SVG图片
-    category: '螺丝系列',
+    category: '工业风机系列',
+    specs: {
+      '材质': '304不锈钢',
+      '表面处理': '镀铬',
+      '规格': 'M8-M20'
+    }
+  },
+  {
+    id: 'premium-bolt-normal',
+    name: '一般螺母',
+    image: '/Img/螺丝.png', // 使用新创建的产品SVG图片
+    category: '工业风机系列',
     specs: {
       '材质': '304不锈钢',
       '表面处理': '镀铬',
@@ -16,7 +27,7 @@ export const products = [
     id: 'anti-corrosion-fasteners',
     name: '防松系列',
     image: '/Img/product-2.svg',
-    category: '组合件系列',
+    category: '新能源充电枪系列',
     specs: {
       '材质': '316L不锈钢',
       '表面处理': '特殊防腐涂层',
@@ -27,7 +38,7 @@ export const products = [
     id: 'precision-screws',
     name: '精密螺丝系列',
     image: '/Img/product-3.svg',
-    category: '螺丝系列',
+    category: '电表系列',
     specs: {
       '材质': '钛合金',
       '表面处理': '阳极氧化',
@@ -38,7 +49,7 @@ export const products = [
     id: 'eco-friendly-fasteners',
     name: '环保紧固件',
     image: '/Img/product-4.svg',
-    category: '精密螺丝系列',
+    category: '电磁水阀系列',
     specs: {
       '材质': '可降解复合材料',
       '表面处理': '无',
@@ -67,51 +78,17 @@ export const products = [
       '规格': 'M10-M36'
     }
   },
-  {
-    id: 'architectural-fasteners',
-    name: '建筑用紧固件',
-    image: '/Img/carousel-3.svg',
-    category: '建筑系列',
-    specs: {
-      '材质': '碳钢',
-      '表面处理': '热镀锌',
-      '规格': 'M12-M30'
-    }
-  },
-  {
-    id: 'marine-grade-fasteners',
-    name: '船用级紧固件',
-    image: '/Img/hero.jpg',
-    category: '特殊环境',
-    specs: {
-      '材质': '双相不锈钢',
-      '表面处理': '特殊海洋防腐处理',
-      '规格': 'M8-M24'
-    }
-  },
-  {
-    id: 'marine-prade-fasteners',
-    name: '船用级紧固件',
-    image: '/Img/hero.jpg',
-    category: '特殊环境',
-    specs: {
-      '材质': '双相不锈钢',
-      '表面处理': '特殊海洋防腐处理',
-      '规格': 'M8-M24'
-    }
-  }
+
+
+
 ];
 
 // 产品分类
 export const categories = [
-  '螺钉系列',
-  '螺丝系列',
-  '组合件系列',
-  '精密螺丝系列',
-  '五金冲压件系列',
-  '工业系列',
-  '建筑系列',
-  '特殊环境'
+  '工业风机系列',
+  '新能源充电枪系列',
+  '电表系列',
+  '电磁水阀系列',
 ];
 
 // 获取单个产品详情
@@ -147,6 +124,12 @@ export function getProductImages(productId: string) {
       '/Img/product-4.svg', // 不同角度的图片，这里重复使用同一张作为示例
       '/Img/carousel-1.svg',
       '/Img/hero.jpg',
+    ],
+    'premium-bolt-normal': [
+      '/Img/螺丝.png',
+      '/Img/螺丝.png', // 不同角度的图片，这里重复使用同一张作为示例
+      '/Img/螺丝.png',
+      '/Img/螺丝.png',
     ],
   };
   

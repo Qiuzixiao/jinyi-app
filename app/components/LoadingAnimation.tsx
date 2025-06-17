@@ -17,7 +17,7 @@ export default function LoadingAnimation() {
   if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-500">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[radial-gradient(circle,#42bad6,#37add3,#34a0ce,#3892c7,#4184bf,#3c89c5,#368fca,#2f94d0,#00afe1,#00c9eb,#2be2f0,#5ffbf1)] transition-opacity duration-500">
       <div className="relative">
         {/* 品牌标志动画 */}
         <div className="w-24 h-24 relative">

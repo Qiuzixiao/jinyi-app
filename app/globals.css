@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 弹出框动画 */
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    backdrop-filter: blur(0);
+    -webkit-backdrop-filter: blur(0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -14,13 +30,13 @@
   
   /* 添加缺失的颜色变量 */
   --color-black: #000000;
-  --color-white: #ffffff;
+  --color-white: #FFFFFF;
   --color-light-gray: #f5f5f5;
   --color-dark-gray: #333333;
   --color-medium-gray: #666666;
   --background: #ffffff;
   --foreground: #302e2e;
-  --page-background-color: #ffffff; /* 统一页面背景颜色变量 */
+  --page-background-color: #f8f9fa; /* 修改为浅灰色背景 */
 }
 
 @theme inline {
@@ -54,14 +70,16 @@ body {
 /* 导航栏样式 */
 #navbar {
   transition: all 0.3s ease;
-}
-
-#navbar.bg-transparent {
   background-color: transparent;
 }
 
+#navbar.bg-transparent {
+  background-color: transparent !important;
+}
+
 #navbar.bg-white {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(8px);
 }
 
 /* 导航链接悬停动画 */
@@ -220,4 +238,56 @@ body {
     rgba(245, 245, 245, 0.05) 20px
   );
   background-color: var(--color-dark-gray);
+}
+
+/* 时间线左右滑入动画 */
+@keyframes slideInLeft {
+  from { transform: translateX(-60px) scale(0.96); opacity: 0; }
+  to { transform: translateX(0) scale(1); opacity: 1; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(60px) scale(0.96); opacity: 0; }
+  to { transform: translateX(0) scale(1); opacity: 1; }
+}
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s cubic-bezier(.4,2,.6,1) forwards;
+}
+.animate-slide-in-right {
+  animation: slideInRight 0.8s cubic-bezier(.4,2,.6,1) forwards;
+}
+
+/* 时间线卡片阴影和发光 */
+.timeline-item .timeline-dot {
+  box-shadow: 0 0 18px 4px rgba(158,27,50,0.25), 0 0 0 4px #fff;
+  transition: box-shadow 0.4s;
+}
+.timeline-item:hover .timeline-dot {
+  box-shadow: 0 0 30px 8px rgba(158,27,50,0.5), 0 0 0 6px #fff;
+}
+.timeline-item .timeline-card {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.18);
+  transition: box-shadow 0.4s, transform 0.4s;
+}
+.timeline-item:hover .timeline-card {
+  box-shadow: 0 16px 48px 0 rgba(31,38,135,0.28);
+  transform: scale(1.04);
+}
+
+@keyframes slideInLeftElastic {
+  0%   { transform: translateX(-60px) scale(0.8); opacity: 0; }
+  60%  { transform: translateX(10px) scale(1.08); opacity: 1; }
+  80%  { transform: translateX(-2px) scale(0.98); }
+  100% { transform: translateX(0) scale(1); }
+}
+@keyframes slideInRightElastic {
+  0%   { transform: translateX(60px) scale(0.8); opacity: 0; }
+  60%  { transform: translateX(-10px) scale(1.08); opacity: 1; }
+  80%  { transform: translateX(2px) scale(0.98); }
+  100% { transform: translateX(0) scale(1); }
+}
+.animate-slide-in-left-elastic {
+  animation: slideInLeftElastic 0.9s cubic-bezier(.4,2,.6,1) forwards;
+}
+.animate-slide-in-right-elastic {
+  animation: slideInRightElastic 0.9s cubic-bezier(.4,2,.6,1) forwards;
 }

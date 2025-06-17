@@ -7,6 +7,7 @@ import ProductGrid from "./components/ProductGrid";
 import { products, categories } from "./data/products";
 
 import NavbarClient from './components/NavbarClient';
+import { Smokum } from 'next/font/google';
 
 export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -52,13 +53,21 @@ export default function Home() {
       timelineItems.forEach(item => {
         const rect = item.getBoundingClientRect();
         
-        // 当时间轴项目进入视口时触发动画
         if (rect.top < windowHeight * 0.85) {
-          item.classList.add('animate-fade-in');
+          const side = item.getAttribute('data-side');
+          if (side === 'left') {
+            item.classList.add('animate-slide-in-left-elastic');
+            item.classList.remove('animate-slide-in-right-elastic');
+          } else {
+            item.classList.add('animate-slide-in-right-elastic');
+            item.classList.remove('animate-slide-in-left-elastic');
+          }
           item.classList.remove('opacity-0');
           item.classList.add('opacity-100');
-          item.classList.remove('translate-x-10', '-translate-x-10');
           item.classList.add('translate-x-0');
+        } else {
+          item.classList.remove('animate-slide-in-left-elastic', 'animate-slide-in-right-elastic', 'opacity-100', 'translate-x-0');
+          item.classList.add('opacity-0');
         }
       });
     };
@@ -93,7 +102,7 @@ export default function Home() {
         {/* Hero 内容 */}
         <div className="hero-content relative z-10 text-center p-8 pt-32 transition-all duration-1000 ease-out">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-slide-down">
-            精工技艺
+            精艺控股
           </h1>
           <p className="text-xl md:text-2xl mb-10 max-w-2xl mx-auto animate-slide-up opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             探索精艺控股的非凡产品系列，体验匠心工艺与极致设计的完美融合。
@@ -140,7 +149,7 @@ export default function Home() {
         
         <div className="container mx-auto relative z-10">
           {/* 轮播图 - 增强动画效果 */}
-          <div className="mb-20 opacity-0 animate-parallax-medium shadow-2xl rounded-lg overflow-hidden" style={{ animationFillMode: 'forwards', animationPlayState: 'paused', animationDelay: '0.2s' }}>
+          <div className="mb-20 opacity-0 animate-parallax-medium shadow-2xl rounded-3xl overflow-hidden" style={{ animationFillMode: 'forwards', animationPlayState: 'paused', animationDelay: '0.2s' }}>
             <ImageCarousel 
               images={[
                 '/Carousel/Carousel-1.jpg',
@@ -168,64 +177,63 @@ export default function Home() {
             <div className="w-32 h-1 bg-burberry-red mx-auto transition-all duration-400 group-hover:w-48"></div>
           </div>
           
-          {/* 时间轴 - 添加滚动触发动画 */}
+          {/* 时间轴 - 交错排列 */}
           <div className="relative opacity-0 animate-parallax-slow" style={{ animationFillMode: 'forwards', animationPlayState: 'paused', animationDelay: '0.6s' }}>
-            {/* 中心线 */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-beige"></div>
-            
-            {/* 时间节点 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* 节点1 */}
-              <div className="md:col-start-1 md:text-right relative pb-16 timeline-item opacity-0 translate-x-10" style={{ transitionDelay: '0.1s' }}>
-                <div className="absolute right-0 md:right-auto md:left-full transform translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 md:translate-x-1/2 timeline-dot shadow-lg"></div>
-                <div className="md:pr-16 p-6 bg-white rounded-lg shadow-md transition-all duration-400 hover:shadow-xl hover:-translate-y-1">
-                  <h4 className="text-xl font-bold mb-3 text-black">1988年</h4>
-                  <p className="text-black">精艺控股在浙江成立，专注于紧固件的研发与制造。</p>
+            {/* 中心线：渐变色 */}
+            <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-burberry-red via-beige to-cyan-400 -translate-x-1/2"></div>
+            <div className="flex flex-col gap-16">
+              {/* 节点1：左侧 */}
+              <div className="flex justify-start items-center relative timeline-item opacity-0 translate-x-10" data-side="left" style={{ transitionDelay: '0.1s' }}>
+                <div className="w-1/2 pr-8 flex justify-end">
+                  <div className="timeline-card bg-white rounded-lg p-6">
+                    <h4 className="font-bold text-xl mb-3">1988年</h4>
+                    <p>精艺控股在浙江成立，专注于紧固件的研发与制造。</p>
+                  </div>
+                </div>
+                <div className="w-0 flex flex-col items-center">
+                  <div className="timeline-dot w-5 h-5 rounded-full bg-burberry-red z-10"></div>
+                </div>
+                <div className="w-1/2"></div>
+              </div>
+              {/* 节点2：右侧 */}
+              <div className="flex justify-end items-center relative timeline-item opacity-0 -translate-x-10" data-side="right" style={{ transitionDelay: '0.3s' }}>
+                <div className="w-1/2"></div>
+                <div className="w-0 flex flex-col items-center">
+                  <div className="timeline-dot w-5 h-5 rounded-full bg-burberry-red z-10"></div>
+                </div>
+                <div className="w-1/2 pl-8 flex justify-start">
+                  <div className="timeline-card bg-white rounded-lg p-6">
+                    <h4 className="font-bold text-xl mb-3">2000年</h4>
+                    <p>精艺步入快速发展轨道</p>
+                  </div>
                 </div>
               </div>
-              
-              <div className="md:col-start-2 relative pb-16">
-                <div className="md:hidden absolute left-0 transform -translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 shadow-lg"></div>
-                <div className="md:pl-16"></div>
+              {/* 节点3：左侧 */}
+              <div className="flex justify-start items-center relative timeline-item opacity-0 translate-x-10" data-side="left" style={{ transitionDelay: '0.5s' }}>
+                <div className="w-1/2 pr-8 flex justify-end">
+                  <div className="timeline-card bg-white rounded-lg p-6">
+                    <h4 className="font-bold text-xl mb-3">2006年</h4>
+                    <p>2006年，ERP系统上线，精艺迈入数字化经营新时代，效率与管理并进。</p>
+                  </div>
+                </div>
+                <div className="w-0 flex flex-col items-center">
+                  <div className="timeline-dot w-5 h-5 rounded-full bg-burberry-red z-10"></div>
+                </div>
+                <div className="w-1/2"></div>
               </div>
-
-              {/* 节点2 */}
-              <div className="md:col-start-2 relative pb-16 timeline-item opacity-0 -translate-x-10" style={{ transitionDelay: '0.3s' }}>
-                <div className="absolute left-0 transform -translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 timeline-dot shadow-lg"></div>
-                <div className="md:pl-16 p-6 bg-white rounded-lg shadow-md transition-all duration-400 hover:shadow-xl hover:-translate-y-1">
-                  <h4 className="text-xl font-bold mb-3 text-black">2000年</h4>
-                  <p className="text-black">精艺步入快速发展轨道</p>
+              {/* 节点4：右侧 */}
+              <div className="flex justify-end items-center relative timeline-item opacity-0 -translate-x-10" data-side="right" style={{ transitionDelay: '0.7s' }}>
+                <div className="w-1/2"></div>
+                <div className="w-0 flex flex-col items-center">
+                  <div className="timeline-dot w-5 h-5 rounded-full bg-burberry-red z-10"></div>
+                </div>
+                <div className="w-1/2 pl-8 flex justify-start">
+                  <div className="timeline-card bg-white rounded-lg p-6">
+                    <h4 className="font-bold text-xl mb-3">2021年</h4>
+                    <p>上线数字化车间，开启数据决策用的经营模式。</p>
+                  </div>
                 </div>
               </div>
-              
-              <div className="md:col-start-1 relative pb-16">
-                <div className="md:hidden absolute right-0 transform translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 shadow-lg"></div>
-                <div className="md:pr-16"></div>
-              </div>
-
-              {/* 节点3 */}
-              <div className="md:col-start-1 md:text-right relative pb-16 timeline-item opacity-0 translate-x-10" style={{ transitionDelay: '0.5s' }}>
-                <div className="absolute right-0 md:right-auto md:left-full transform translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 md:translate-x-1/2 timeline-dot shadow-lg"></div>
-                <div className="md:pr-16 p-6 bg-white rounded-lg shadow-md transition-all duration-400 hover:shadow-xl hover:-translate-y-1">
-                  <h4 className="text-xl font-bold mb-3 text-black">2006年</h4>
-                  <p className="text-black">2006年，ERP系统上线，精艺迈入数字化经营新时代，效率与管理并进。</p>
-                </div>
-              </div>
-              
-              <div className="md:col-start-2 relative pb-16">
-                <div className="md:hidden absolute left-0 transform -translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 shadow-lg"></div>
-                <div className="md:pl-16"></div>
-              </div>
-
-              {/* 节点4 */}
-              <div className="md:col-start-2 relative pb-16 timeline-item opacity-0 -translate-x-10" style={{ transitionDelay: '0.7s' }}>
-                <div className="absolute left-0 transform -translate-x-1/2 -translate-y-1/4 w-5 h-5 rounded-full bg-burberry-red z-10 timeline-dot shadow-lg"></div>
-                <div className="md:pl-16 p-6 bg-white rounded-lg shadow-md transition-all duration-400 hover:shadow-xl hover:-translate-y-1">
-                  <h4 className="text-xl font-bold mb-3 text-black">2021年</h4>
-                  <p className="text-black">上线数字化车间，开启数据决策用的经营模式。</p>
-                </div>
-              </div>
-              {/* 保留空白，删除重复的时间轴节点 */}
             </div>
           </div>
         </div>
@@ -238,7 +246,7 @@ export default function Home() {
         <div className="absolute -right-32 bottom-0 w-96 h-96 rounded-full bg-burberry-red opacity-10 blur-3xl"></div>
         
         <div className="container mx-auto relative z-10">
-          <h2 className="text-5xl font-bold text-center mb-16 text-white opacity-0 animate-parallax-slow" style={{ animationFillMode: 'forwards', animationPlayState: 'paused' }}>
+          <h2 className="text-5xl font-bold text-center mb-16 text-burberry-red opacity-0 animate-parallax-slow drop-shadow-[0_2px_4px_rgba(158,27,50,0.3)]" style={{ animationFillMode: 'forwards', animationPlayState: 'paused' }}>
             关于我们
           </h2>
           
@@ -264,13 +272,13 @@ export default function Home() {
                   </div>
                   <span className="text-gray-700 group-hover:text-burberry-red transition-all duration-400">contact@jinyi-holdings.com</span>
                 </div>
-                <div className="flex items-center space-x-4 group">
+                <div className="flex items-center space-x-4 group" id="contact-phone">
                   <div className="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-burberry-red group-hover:bg-burberry-red group-hover:text-white transition-all duration-400">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                     </svg>
                   </div>
-                  <span className="text-gray-700 group-hover:text-burberry-red transition-all duration-400">+86 123 4567 8910</span>
+                  <span className="text-gray-700 group-hover:text-burberry-red transition-all duration-400">0577-62877317 / 0577-62863333</span>
                 </div>
                 <div className="flex items-center space-x-4 group">
                   <div className="w-10 h-10 rounded-full bg-beige flex items-center justify-center text-burberry-red group-hover:bg-burberry-red group-hover:text-white transition-all duration-400">
@@ -285,21 +293,82 @@ export default function Home() {
             </div>
             
             {/* 右侧：联系表单 */}
-            <div className="bg-white p-8 rounded-lg shadow-xl opacity-0 animate-parallax-medium" style={{ animationFillMode: 'forwards', animationPlayState: 'paused', animationDelay: '0.4s' }}>
-              <form className="space-y-6">
+            <div className="bg-white p-8 rounded-lg shadow-xl opacity-0 animate-parallax-medium" id="contact-form" style={{ animationFillMode: 'forwards', animationPlayState: 'paused', animationDelay: '0.4s' }}>
+              <form className="space-y-6" onSubmit={async (e) => {
+                e.preventDefault();
+                const formElement = e.currentTarget; // 先保存
+                const formData = new FormData(formElement);
+                const data = {
+                  name: formData.get('name'),
+                  email: formData.get('email'),
+                  message: formData.get('message')
+                };
+
+                try {
+                  console.log('开始发送请求...');
+                  const response = await fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                  });
+
+                  console.log('收到响应:', response.status);
+                  const result = await response.json();
+                  console.log('响应数据:', result);
+
+                  if (result.success) {
+                    console.log('发送成功，显示成功提示');
+                    alert('留言已发送，我们会尽快回复您！');
+                    formElement.reset(); // 用保存的变量
+                    return;
+                  }
+                  
+                  console.log('发送失败，显示错误提示');
+                  alert(`发送失败：${result.error}\n${result.details || ''}`);
+                } catch (error) {
+                  console.error('发生错误:', error);
+                  alert('发送失败，请检查网络连接后重试');
+                }
+              }}>
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">姓名</label>
-                  <input type="text" id="name" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-beige focus:border-transparent transition-all duration-400" placeholder="请输入您的姓名" />
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">姓名 / 公司名称</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-beige focus:border-transparent transition-all duration-400" 
+                    placeholder="请输入您的姓名或公司名称" 
+                  />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">邮箱</label>
-                  <input type="email" id="email" className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-beige focus:border-transparent transition-all duration-400" placeholder="请输入您的邮箱" />
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-beige focus:border-transparent transition-all duration-400" 
+                    placeholder="请输入您的邮箱" 
+                  />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">留言</label>
-                  <textarea id="message" rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-beige focus:border-transparent transition-all duration-400" placeholder="请输入您的留言"></textarea>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">留言 / 需求</label>
+                  <textarea 
+                    id="message" 
+                    name="message"
+                    required
+                    rows={4} 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-beige focus:border-transparent transition-all duration-400" 
+                    placeholder="请留下您的合作意向或联系方式，我们会尽快与您联系"
+                  ></textarea>
                 </div>
-                <button type="button" className="w-full bg-burberry-red text-white py-3 px-6 rounded-md hover:bg-red-700 transition-all duration-400 transform hover:-translate-y-1 hover:shadow-lg">
+                <button 
+                  type="submit" 
+                  className="w-full bg-burberry-red text-white py-3 px-6 rounded-md hover:bg-red-700 transition-all duration-400 transform hover:-translate-y-1 hover:shadow-lg"
+                >
                   提交
                 </button>
               </form>
@@ -330,7 +399,7 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-6 text-white">企业文化</h3>
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-white hover:text-burberry-red transition-colors duration-300">公司简介</a>
+                  <a href="/about" className="text-white hover:text-burberry-red transition-colors duration-300">公司简介</a>
                 </li>
                 <li>
                   <a href="#" className="text-white hover:text-burberry-red transition-colors duration-300">企业使命</a>
